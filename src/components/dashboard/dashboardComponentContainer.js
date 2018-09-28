@@ -4,14 +4,16 @@ import { fetchPosts } from "./dashboardActions";
 import {
     getPostsSelector,
     getIsLoadingSelector,
-    getPostsErrorSelector
+    getPostsErrorSelector,
+    getUserSelector
 }
     from './dashboardSelector';
 
 const mapStateToProps = state => ({
     isLoading: getIsLoadingSelector(state),
     posts: getPostsSelector(state),
-    postsError: getPostsErrorSelector(state)
+    postsError: getPostsErrorSelector(state),
+    user:getUserSelector(state)
 });
 
 const mapDispatchToProps = {

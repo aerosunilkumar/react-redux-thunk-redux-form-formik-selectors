@@ -2,7 +2,11 @@ const initialState = {
     dashboardData: {
         isLoading:true,
         posts: [],
-        postsError:undefined
+        postsError:undefined,
+        user:{
+            email:"",
+            username:""
+        }
     }    
   };
   

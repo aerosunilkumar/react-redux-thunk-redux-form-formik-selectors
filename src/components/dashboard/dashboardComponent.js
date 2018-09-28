@@ -7,7 +7,8 @@ class dashboardComponent extends Component {
     fetchPosts: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     posts: PropTypes.array.isRequired,
-    postsError: PropTypes.bool
+    postsError: PropTypes.bool,
+    user: PropTypes.object.isRequired
   };
 
   componentWillMount() {
@@ -16,7 +17,7 @@ class dashboardComponent extends Component {
   }
 
   render() {
-    const { isLoading, posts, postsError } = this.props;
+    const { isLoading, posts, postsError, user } = this.props;
     const postItems = posts.map(post => (
       <div key={post.id}>
         <h3>
@@ -30,15 +31,17 @@ class dashboardComponent extends Component {
     return (
       <div>
         <div>
+          <DashboardSerarchComponent isLoading={isLoading} posts={posts} postsError={postsError} user={user} />
+        </div>
+        <hr />
+        <div>
           Dashboard
         {isLoading && <div>Loading...</div>}
           {postsError && <div>{JSON.stringify(postsError)}</div>}
           {postItems}
         </div>
-        <hr />
-        <div>
-          <DashboardSerarchComponent isLoading={isLoading} posts={posts} postsError={postsError} />
-        </div>
+
+
       </div>
     );
   }

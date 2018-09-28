@@ -9,3 +9,7 @@ export const getIsLoadingSelector = state => {
 export const getPostsErrorSelector = state => {
     return state.dashboardData.postsError;
 }
+
+export const getUserSelector = state => {
+    return state.dashboardData.user;
+}
