@@ -1,1 +1,0 @@
-export const FETACH_POSTS="FETACH_POSTS";
