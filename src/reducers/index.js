@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import dashboardReducer from './dashboard'
+import dashboardReducer from '../components/dashboard/dashboardReducer'
 
 export default combineReducers({
-    dashboardReducer
+    dashboardData:dashboardReducer
 });
