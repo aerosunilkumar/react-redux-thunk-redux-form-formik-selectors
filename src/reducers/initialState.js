@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const initialState = {
     dashboardData: {
         isLoading:true,
@@ -5,7 +7,8 @@ const initialState = {
         postsError:undefined,
         user:{
             email:"",
-            username:""
+            username:"",
+            datepicker:moment()
         }
     }    
   };

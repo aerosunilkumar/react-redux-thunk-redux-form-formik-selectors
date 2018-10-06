@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import DashboardSerarchComponent from './dashboardSerarchComponentContainer';
+import {Accordian} from '../ui-kit'
 
 class dashboardComponent extends Component {
   static propTypes = {
@@ -30,17 +31,19 @@ class dashboardComponent extends Component {
     ));
     return (
       <div>
+        <Accordian isOpen={true} triggerContent={<span>Search Component</span>}>
         <div>
           <DashboardSerarchComponent isLoading={isLoading} posts={posts} postsError={postsError} user={user} />
         </div>
-        <hr />
+        </Accordian>
+        <Accordian isOpen={true} triggerContent={<span>Search Results Component</span>}>
         <div>
           Dashboard
         {isLoading && <div>Loading...</div>}
           {postsError && <div>{JSON.stringify(postsError)}</div>}
           {postItems}
         </div>
-
+        </Accordian>
 
       </div>
     );
