@@ -5,9 +5,12 @@
   "dependencies": {
     "axios": "^0.18.0",
     "formik": "^1.1.1",
+    "moment": "^2.22.2",
     "react": "^16.4.2",
     "react-bootstrap-table-next": "^1.1.4",
     "react-bootstrap-table2-paginator": "^1.0.2",
+    "react-collapsible": "^2.3.1",
+    "react-datepicker": "^1.6.0",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
@@ -17,9 +20,21 @@
     "yup": "0.24.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build-css": "node-sass-chokidar --include-path src src/styles/global/index.scss public/global/agentportal/css/index.css --output-style compressed",
+    "watch-css": "npm run build-css && node-sass-chokidar --watch --include-path src src/styles/global/index.scss public/global/agentportal/css/index.css",
+    "start": "react-scripts start -p watch-css",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss}\""
+  },
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
